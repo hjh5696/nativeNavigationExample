@@ -28,8 +28,12 @@ jobs:
           path: ~/project
       - attach_workspace:
           at: ~/project
-      - run: bundle update fastlane
-      - run: bundle exec fastlane beta
+      - run:
+          command: bundle update fastlane
+          no_output_timeout: 30m
+      - run:
+          command: bundle exec fastlane beta
+          no_output_timeout: 30m
 
   ios:
     macos:
