@@ -1,6 +1,5 @@
-import 'react-native';
 import React from 'react';
-import PushedScreen from 'app/screens/PushedScreen';
+import PushedScreen from '../app/screens/PushedScreen';
 
 import renderer from 'react-test-renderer';
 
