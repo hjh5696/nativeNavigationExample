@@ -1,11 +1,5 @@
 import React from 'react';
-import PushedScreen from '../app/screens/PushedScreen';
 
-import renderer from 'react-test-renderer';
-
-it('renders correctly', () => {
-  const tree = renderer.create(
-    <PushedScreen />
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+test('adds 1 + 2 to equal 3', () => {
+  expect((1 + 2)).toBe(3);
 });
