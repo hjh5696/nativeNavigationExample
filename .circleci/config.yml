@@ -33,7 +33,7 @@ jobs:
           command: bundle update fastlane
           no_output_timeout: 30m
       - run:
-          name: fastlane
+          name: Fastlane beta
           command: bundle exec fastlane beta
           no_output_timeout: 30m
 
