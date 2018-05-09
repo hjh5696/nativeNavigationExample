@@ -1,0 +1,57 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  before_all do
+    setup_circle_ci
+  end
+
+  desc "Build and run tests"
+  lane :test do
+    scan(scheme: "nativeNavigationExample")
+  end
+
+  lane :beta do
+    desc "TesfFlight for IOS"
+    # Circle CI does not create new code signing certificates or provisioning profiles.
+    sync_code_signing(type: "appstore", readonly: true, app_identifier: "com.bepro11.nativeNavigationExample")
+    # see code signing guide for more information, readonly because of CircleCI
+    build_app(scheme: "nativeNavigationExample")
+    upload_to_testflight(skip_waiting_for_build_processing: true)
+    # slack(
+    #   slack_url: "https://hooks.slack.com/services/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"
+    #   channel: "dev",
+    #   message: "Successfully uploaded a fastlane beta release"
+    # )
+  end
+end
+
+lane :increase_build_number_and_push_to_beta do |values|
+    # Increment the build number (not the version number)
+    # Providing the xcodeproj is optional
+    increment_build_number(xcodeproj: "nativeNavigationExample.xcodeproj")
+    # Commit the version bump
+    commit_version_bump(xcodeproj: "nativeNavigationExample.xcodeproj", force: true)
+    # Add a git tag for this build. This will automatically
+    # use an appropriate git tag name
+    add_git_tag
+    # Push the new commit and tag back to your git remote
+    push_to_git_remote(
+        remote_branch: "beta", # optional, default is set to local_branch
+        force: true,    # optional, default: false
+    )
+end
