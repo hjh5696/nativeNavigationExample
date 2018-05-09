@@ -58,7 +58,10 @@ jobs:
           root: ~/project
           paths:
             - ios
-      - run: bundle exec fastlane test
+      - run:
+          name: bundle fastlane
+          command: bundle exec fastlane test
+          no_output_timeout: 30m
       - store_artifacts:
           path: ~/project/output
       - store_test_results:
