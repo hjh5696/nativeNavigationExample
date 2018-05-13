@@ -26,7 +26,7 @@ platform :ios do
   end
 
   lane :beta do
-    desc "TesfFlight for IOS"
+    desc "TestFlight for IOS"
     # Circle CI does not create new code signing certificates or provisioning profiles.
     sync_code_signing(type: "appstore", readonly: true, app_identifier: "com.bepro11.nativeNavigationExample")
     # see code signing guide for more information, readonly because of CircleCI
