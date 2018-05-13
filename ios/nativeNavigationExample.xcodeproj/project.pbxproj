@@ -1282,7 +1282,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepro11.nativeNavigationExample;
 				PRODUCT_NAME = nativeNavigationExample;
-				PROVISIONING_PROFILE = "835e66d4-67fb-4dcd-881d-cd15300634ea";
+				PROVISIONING_PROFILE = "5ca44452-513b-4d9a-85ca-5e16f433f0e2";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.bepro11.nativeNavigationExample";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1311,7 +1311,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bepro11.nativeNavigationExample;
 				PRODUCT_NAME = nativeNavigationExample;
-				PROVISIONING_PROFILE = "835e66d4-67fb-4dcd-881d-cd15300634ea";
+				PROVISIONING_PROFILE = "5ca44452-513b-4d9a-85ca-5e16f433f0e2";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.bepro11.nativeNavigationExample";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
